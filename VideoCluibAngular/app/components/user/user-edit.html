@@ -1,0 +1,62 @@
+<form name="myForm" novalidate>    
+    <div class="form-horizontal">
+        <h4> Edit User</h4>
+        <hr>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Value_Name">Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="uac.editModel.Name" ng-required="true" id="Value_Name" name="Value.Name" type="text" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Value_LastName">LastName</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="uac.editModel.LastName" ng-required="true" id="Value_LastName" name="Value.LastName" type="text" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Value_Street">Street</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="uac.editModel.Street" ng-required="true" id="Value_Street" name="Value.Street" type="text" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Value_StreetNumber">StreetNumber</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="uac.editModel.StreetNumber" ng-required="true" id="Value_StreetNumber" name="Value.StreetNumber" type="number" >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Value_City">City</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="uac.editModel.City" ng-required="true" id="Value_City" name="Value.City" type="text" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Value_Email">Email</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="uac.editModel.Email" ng-required="true" id="Value_Email" name="Value.Email" placeholder="example@mail.com" type="email" >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Value_Mobile">Mobile</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" ng-model="uac.editModel.Mobile" ng-required="true" id="Value_Mobile" min="0" name="Value.Mobile" type="number" >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <a ng-disabled='!myForm.$valid' class="btn btn-primary" ng-click="uac.UpdateUser()"> Update</a>
+                <a class='btn btn-warning' value='button' href="#/users" > Cancel </a>
+            </div>
+        </div>
+    </div>
+</form>

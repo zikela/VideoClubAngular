@@ -1,0 +1,40 @@
+<form name="myForm" novalidate>
+<h4>Movie</h4>
+<hr>
+
+
+<div class="form-group">
+    <label class="control-label col-md-2" for="Value_Name">Name</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" ng-model="arc.movie.Name" id="Value_Name" name="Value.Name" type="text" value="" ng-required="true">
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-md-2" for="Value_Genre">Genre</label>
+    <div id="dropdownList" class="col-md-10">
+        <select class="form-control" ng-model="arc.movie.Genre" ng-required="true">
+            <option selected="selected" value="0"></option>
+            <option value="1">Action</option>
+            <option value="2">Horor</option>
+            <option value="3">Thriller</option>
+            <option value="4">Comedy</option>
+            <option value="5">Fiction</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-md-2" for="Value_NumberOfCopies">Number Of Copies</label>
+    <div class="col-md-10">
+        <input class="form-control text-box single-line" ng-model="arc.movie.NumberOfCopies" ng-required="true" id="Value_NumberOfCopies" min="0" name="Value.NumberOfCopies" type="number" value="0">
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <button class="btn btn-primary" ng-click="arc.AddMovie()" ng-disabled='!myForm.$valid'> Create </button>
+        <a class='btn btn-warning' value='button' href="#/movies" > Cancel </a>
+    </div>
+</div>
+</form>

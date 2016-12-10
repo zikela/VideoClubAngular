@@ -1,0 +1,27 @@
+
+
+.link {
+	cursor:pointer;
+}
+/*
+
+.nav-sidebar > .activeItem > a,
+.nav-sidebar > .activeItem > a:hover,
+.nav-sidebar > .activeItem > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+*/
+
+input[type=text].ng-invalid,
+input[type=email].ng-invalid,
+input[type=number].ng-invalid,
+textarea.ng-invalid{
+  border-left:solid 3px #900;
+}
+input[type=text].ng-valid,
+input[type=email].ng-valid,
+input[type=number].ng-valid,
+textarea.ng-valid{
+  border-left:solid 3px #090;
+}

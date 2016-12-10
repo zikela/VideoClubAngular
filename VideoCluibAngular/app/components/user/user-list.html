@@ -1,0 +1,77 @@
+<div>
+    <h3>Users<h3>
+	<table class="table table-hover table-bordered">
+		<thead>
+		<tr class="active">
+            <td><input class="form-control" id="userId" name="userId" placeholder="User ID" ng-model="ulc.search.UserID"></td>
+			<td><input class="form-control" id="name" name="name" placeholder="Name" ng-model="ulc.search.Name"></td>
+            <td><input class="form-control" id="lastName" name="lastName" placeholder="Last Name" ng-model="ulc.search.LastName"></td>
+			<td><input class="form-control" id="street" name="street" placeholder="Street" ng-model="ulc.search.Street"></td>
+            <td><input class="form-control" id="streetNumber" name="streetNumber" placeholder="Street Number" ng-model="ulc.search.StreetNumber"></td>
+            <td><input class="form-control" id="city" name="city" placeholder="City" ng-model="ulc.search.City"></td>
+            <td><input class="form-control" id="email" name="email" placeholder="Email" ng-model="ulc.search.Email"></td>
+            <td><input class="form-control" id="mobile" name="mobile" placeholder="Mobile" ng-model="ulc.search.Mobile"></td>
+		</tr>
+		<tr class="active">
+			<th>
+				User ID
+			</th>
+			<th>
+				Name
+			</th>
+			<th>
+				Last Name
+			</th>
+            <th>
+				Street
+			</th>
+            <th>
+				Street Number
+			</th>
+            <th>
+				City
+			</th>
+            <th>
+				Email
+			</th>
+            <th>
+				Mobile
+			</th>
+            <th></th>
+            <th></th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in ulc.users | filter : ulc.search | limitTo : ulc.pagination.pageSize : (ulc.pagination.currentPage-1) * ulc.pagination.pageSize">
+				<td>{{user.UserID}}</td>
+				<td>{{user.Name}}</td>
+                <td>{{user.LastName}}</td>
+                <td>{{user.Street}}</td>
+                <td>{{user.StreetNumber}}</td>
+                <td>{{user.City}}</td>
+                <td>{{user.Email}}</td>
+                <td>{{user.Mobile}}</td>
+                <td><button ng-click='ulc.editUser(user.UserID)' class="btn btn-sm btn-info glyphicon glyphicon-pencil">Edit</button></td>
+                <td><button ng-click='ulc.userDetails(user.UserID)' class="btn btn-sm btn-info glyphicon glyphicon-zoom-in">Details</button></td>
+            </tr>
+		</tbody>
+	</table>
+	<ul class="pagination pagination-sm">
+        <li ng-class="{'disabled': ulc.pagination.currentPage == 1}">
+            <a class="link" ng-href aria-label="Previous" ng-click="ulc.pagination.changePage(ulc.pagination.currentPage - 1)">
+                <span aria-hidden="true">&laquo; Previous</span>
+            </a>
+        </li>
+         <li ng-repeat="page in ulc.pagination.pages track by $index" ng-class="{'active':($index+1) == ulc.pagination.currentPage}">
+            <a class="link" ng-href ng-click="ulc.pagination.changePage($index+1)">{{$index+1}}</a>
+        </li> 
+        <li ng-class="{'disabled': ulc.pagination.currentPage == ulc.pagination.pages.length}">
+            <a class="link" ng-href aria-label="Next" ng-click="ulc.pagination.changePage(ulc.pagination.currentPage + 1)">
+                <span aria-hidden="true">Next &raquo;</span>
+            </a>
+        </li>
+    </ul>
+    <div>
+        <a class="btn btn-primary" href="#/user/add">Add new user</a>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div>
+    <h3>Rented Movies<h3>
+	<table class="table table-hover table-bordered">
+		<thead>
+		<tr class="active">
+            <td><input class="form-control" id="movieid" name="movies" placeholder="First Name" ng-model="rmc.search.UserName"></td>
+			<td><input class="form-control" id="lastName" name="lastName" placeholder="Last Name" ng-model="rmc.search.LastNameOfUser"></td>
+			<td><input class="form-control" id="email" name="email" placeholder="Email" ng-model="rmc.search.EmailOfUser"></td>
+            <td><input class="form-control" id="mobile" name="mobile" placeholder="Mobile" ng-model="rmc.search.Mobile"></td>
+            <td><input class="form-control" id="dateOfRent" name="dateOfRent" placeholder="Date of Rent" ng-model="rmc.search.DateOfRent"></td>
+            <td><input class="form-control" id="dateOfReturn" name="dateOfReturn" placeholder="Date of Return" ng-model="rmc.search.DateOfReturn"></td>
+		</tr>
+		<tr class="active">
+			
+			<th>
+				User Name
+			</th>
+			<th>
+				Last Name
+			</th>
+            <th>
+				Email
+			</th>
+            <th>
+				Mobile
+			</th>
+            <th>
+				Date of Rent
+			</th>
+            <th>
+				Date of Return
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+<!--			<tr ng-click="rmc.edit(film._id)" class="link" ng-repeat="film in rmc.films | filter : rmc.search | orderBy : rmc.sortDirection + rmc.sort | limitTo : rmc.pagination.pageSize : (rmc.pagination.currentPage-1) * rmc.pagination.pageSize">-->
+			<tr class="link" ng-click="userDetails(movie.UserID)" ng-repeat="movie in rmc.movies | filter : rmc.search | orderBy : rmc.sortDirection + rmc.sort | limitTo : rmc.pagination.pageSize : (rmc.pagination.currentPage-1) * rmc.pagination.pageSize">
+				<td>{{movie.UserName}}</td>
+				<td>{{movie.LastNameOfUser}}</td>
+                <td>{{movie.EmailOfUser}}</td>
+				<td>{{movie.Mobile}}</td>
+                <td>{{movie.DateOfRent | date: format: shortDate}}</td>
+                <td>{{movie.DateOfReturn | date: format: shortDate}}</td>
+            </tr>
+		</tbody>
+	</table>
+	<ul class="pagination pagination-sm">
+        <li ng-class="{'disabled': rmc.pagination.currentPage == 1}">
+            <a class="link" ng-href aria-label="Previous" ng-click="rmc.pagination.changePage(rmc.pagination.currentPage - 1)">
+                <span aria-hidden="true">&laquo; Previous</span>
+            </a>
+        </li>
+         <li ng-repeat="page in rmc.pagination.pages track by $index" ng-class="{'active':($index+1) == rmc.pagination.currentPage}">
+            <a class="link" ng-href ng-click="rmc.pagination.changePage($index+1)">{{$index+1}}</a>
+        </li> 
+        <li ng-class="{'disabled': rmc.pagination.currentPage == rmc.pagination.pages.length}">
+            <a class="link" ng-href aria-label="Next" ng-click="rmc.pagination.changePage(rmc.pagination.currentPage + 1)">
+                <span aria-hidden="true">Next &raquo;</span>
+            </a>
+        </li>
+    </ul>
+</div>
